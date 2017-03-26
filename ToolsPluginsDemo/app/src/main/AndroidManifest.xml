@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.gameassist.plugin.tool"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="21"/>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/game_head_logo1"
+        android:label="@string/pluginame">
+        <meta-data android:name="Entry"
+                   android:value="com.gameassist.plugin.worms3.app.PluginEntry"/>
+
+        <meta-data android:name="Target0" android:value="com.ast.nbookcartoon"/>
+        <meta-data android:name="Version0" android:value="*"/>
+    </application>
+
+</manifest>

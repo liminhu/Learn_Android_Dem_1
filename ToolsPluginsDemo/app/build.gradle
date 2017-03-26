@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+def outputName = "plugin2-release-v1.0-tool.apk"
+android {
+    signingConfigs {
+        SignConfig {
+            keyAlias 'iplay'
+            keyPassword 'passwd11'
+            storeFile file('release.keystore')
+            storePassword 'passwd11'
+        }
+    }
+
+
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.gameassist.plugin.tool"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-rules.pro'
+            signingConfig signingConfigs.SignConfig
+        }
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            if(variant.buildType.name.equals('release')){
+                output.outputFile = new File(oldFile.parent, outputName)
+            }
+        }
+    }
+}
+
+
+dependencies {
+    compile project(':jni')
+    provided files('libs/pluginInterface.jar')
+}
