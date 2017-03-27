@@ -3,7 +3,7 @@
     package="com.lmhu.firstcodebooksource">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -15,9 +15,8 @@
         <activity android:name=".chapter6.broadcastbestpractice.LoginActivity" />
         <activity android:name=".chapter6.broadcastbestpractice.litepaltest.Litepal_MainActivity" />
         <activity android:name=".chapter6.broadcastbestpractice.filepersistence.File_MainActivity" />
-        <activity android:name=".chapter7.contentProvider.RuntimePermissionActivity"></activity>
-        <activity android:name=".chapter7.contentProvider.DataBaseProviderMainActivity">
-        </activity>
+        <activity android:name=".chapter7.contentProvider.RuntimePermissionActivity" />
+        <activity android:name=".chapter7.contentProvider.DataBaseProviderMainActivity" />
 
         <provider
             android:name=".chapter7.contentProvider.DatabaseProvider"
@@ -25,13 +24,29 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".chapter9.network.test.HttpMainActivity">
+        <activity android:name=".chapter9.network.test.HttpMainActivity" />
+        <activity android:name=".chapter10.service.ServiceMainActivity"></activity>
+
+        <service
+            android:name=".chapter10.service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".chapter10.service.MyIntentService"
+            android:exported="false" />
+
+        <activity android:name=".chapter10.service.download.DownloadServiceMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".chapter10.service.download.DownloadService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
