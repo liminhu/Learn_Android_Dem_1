@@ -1,19 +1,63 @@
 apply plugin: 'com.android.application'
 
+def defaultChannelName="LMH"
+def defaultChannels = [1]
+def packageName="com.lmhu.firstcodebooksource"
+
+def baseVersionCode=1
+def baseVersionName="1.0."  //最终版本名字为：baseVersionName + (git提交次数 + baseBuildCount)
+def channels=2;
+
+def getVersionName={ ->
+    try{
+  /*      def stdout=new ByteArrayOutputStream()
+        exec{
+            commandLine 'git', 'rev-list', 'HEAD', '--count'
+            standardOutput=stdout
+        }*/
+        def retVersionName=Integer.parseInt(2)+2001
+        return baseVersionName+retVersionName
+    }catch (ignored){
+        ignored.printStackTrace()
+        return null;
+    }
+}
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
-    defaultConfig {
+    defaultConfig.with{
         applicationId "com.lmhu.firstcodebooksource"
         minSdkVersion 10
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode=baseVersionCode
+        versionName=getVersionName()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    if(project.hasProperty("channelName")){
+        defaultChannelName=project.getProperties().get("channelName")
+    }
+    if(project.hasProperty("channels")){
+        defaultChannels=[1]
+        channels=project.getProperties().get("channels")
+    }
+    lintOptions{
+        abortOnError=false;
+    }
+    signingConfigs{
+        sign{
+            keyAlias="lmhu"
+            keyPassword='123456$%^'
+            storeFile=file('keystore.jks')
+            storePassword='123456$%^'
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true     //混淆编译
+            zipAlignEnabled true   //移除无用的资源文件
+
+            signingConfig=signingConfigs.sign
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
