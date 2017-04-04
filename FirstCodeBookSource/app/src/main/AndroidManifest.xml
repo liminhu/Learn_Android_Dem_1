@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -26,7 +26,7 @@
             android:exported="true" />
 
         <activity android:name=".chapter9.network.test.HttpMainActivity" />
-        <activity android:name=".chapter10.service.ServiceMainActivity"></activity>
+        <activity android:name=".chapter10.service.ServiceMainActivity" />
 
         <service
             android:name=".chapter10.service.MyService"
@@ -36,18 +36,24 @@
             android:name=".chapter10.service.MyIntentService"
             android:exported="false" />
 
-        <activity android:name=".chapter10.service.download.DownloadServiceMainActivity">
+        <activity android:name=".chapter10.service.download.DownloadServiceMainActivity" />
+
+        <service
+            android:name=".chapter10.service.download.DownloadService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".chapter3A12.View.recyclerview.RecycleViewMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".chapter3A12.View.materialtest.NewFruitActivity" />
+        <activity android:name=".chapter3A12.View.materialtest.Chapter12MainActivity">
 
-        <service
-            android:name=".chapter10.service.download.DownloadService"
-            android:enabled="true"
-            android:exported="true"></service>
+        </activity>
     </application>
 
 </manifest>
