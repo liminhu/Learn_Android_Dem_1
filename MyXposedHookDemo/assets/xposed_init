@@ -1,0 +1,2 @@
+#com.hu.xposed.hook.main.XposedMainLodaPackage
+com.test.common.tencent.mm.TestCommonHook
