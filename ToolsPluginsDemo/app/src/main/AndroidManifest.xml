@@ -13,7 +13,7 @@
         <meta-data android:name="Entry"
                    android:value="com.gameassist.plugin.worms3.app.PluginEntry"/>
 
-        <meta-data android:name="Target0" android:value="com.ast.nbookcartoon"/>
+        <meta-data android:name="Target0" android:value="*"/>
         <meta-data android:name="Version0" android:value="*"/>
     </application>
 
